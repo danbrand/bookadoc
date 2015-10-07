@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @doctor_profile.title %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @doctor_profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @doctor_profile.last_name %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @doctor_profile.photo, class: 'img-responsive img-circle', width: '300px' %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @doctor_profile.bio %>
+</p>
+
+<p>
+  <strong>Post nominals:</strong>
+  <%= @doctor_profile.post_nominals %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @doctor_profile.user %>
+</p>
+
+<%= link_to 'Edit', edit_doctor_profile_path(@doctor_profile) %> |
+<%= link_to 'Back', doctor_profiles_path %>

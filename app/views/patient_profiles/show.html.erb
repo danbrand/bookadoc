@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class = "panel panel-default">
+      <div class = "panel-body">
+        <h2><%= @patient_profile.full_name %></h2>
+
+        
+<p>
+  <strong>Phone:</strong>
+  <%= @patient_profile.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient_profile.address %>
+</p>
+
+<br>
+
+  <%= @patient_profile.suburb %>, <%= @patient_profile.state %>
+  <%= @patient_profile.postcode %> <%= @patient_profile.country %>
+</p>
+
+<p>
+  <strong>Medicare number:</strong>
+  <%= @patient_profile.medicare_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @patient_profile.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_patient_profile_path(@patient_profile), class: 'btn btn-warning' %> 
+
+</div>
+</div>
+</div>
+</div>
+

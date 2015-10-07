@@ -1,0 +1,21 @@
+<h1>Welcome to Book-A-Doc</h1>
+<p>Your easy way to book a doctor</p>
+
+
+<% if user_signed_in? %>
+	<% if current_user.has_role? :patient %>
+		<% if current_user.patient_profile  %>
+			<%= link_to 'My profile', patient_profile_path(current_user.patient_profile), class: 'btn btn-success' %>
+			 <h3>Make an appointment with:</h3>
+    <% DoctorProfile.all.each do |doctor_profile| %>
+      <%= link_to doctor_profile.full_name, new_appointment_path(doctor: doctor_profile.user_id), class: 'btn btn-info' %>
+      <% end %>
+		<% else %>
+			<%= link_to "Create your profile", new_patient_profile_path, class: 'btn btn-success' %>
+		<% end %>
+	<% elsif current_user.has_role? :doctor and !current_user.doctor_profile %>
+		<%= link_to "Create your profile", new_doctor_profile_path, class: 'btn btn-success' %>
+	<% end %>
+<% else %>
+	<%= link_to 'Register to make your appointment', new_user_registration_path(user_type: 'patient'), class: 'btn btn-primary' %>
+<% end %>
